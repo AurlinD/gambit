@@ -1,9 +1,18 @@
 # chess
-A fully fledged chess web application that a user can
-player a game of chess with countdown timers.
-• All pieces are fully functional with the ability to be
-able to do special cases such as castling and
-promoting your pawn.
+- A React chess web application with move indicators that is 
+created using hooks and context.
+- Enables maneuvers such as castling and pawn promotion.
+- Checks if user is ever under check or checkmate.
+
+## Final Product
+
+!["Start"](docs/start.png)
+
+!["Moveset"](docs/moveset.png)
+
+!["Check"](docs/check.png)
+
+!["Checkmate"](docs/checkmate.png)
 
 ## Getting Started
 
@@ -12,4 +21,9 @@ promoting your pawn.
 3. Install the dependencies using the `npm install` command.
 4. Run `npm start` to start the web application which is viewable from your web browser.
 
+## Dependencies
+- React
+- Context
+- Typescript
+- SCSS
 
