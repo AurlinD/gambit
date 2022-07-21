@@ -123,8 +123,6 @@ function App() {
         setDeletePawn={setDeletePawn}
         endPawn={state.endPawn}
         setEndPawn={setEndPawn}
-        // castling={state.castling}
-        // setCastling={setCastling}
         destination={state.destination}
         setDestination={setDestination}
         startPosition={state.startPosition}

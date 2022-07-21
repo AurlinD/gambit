@@ -94,19 +94,5 @@ export default function PawnAvailableMoves(currentPosition: Position, getSpotDet
     result.push({ x: 0, y: 0 });
   }
 
-  // Checks if pawn has availableMove towards end of the board
-  // const endPawn = (item: Object, endPoint: number) => {
-  //   if (Object.values(item).includes(endPoint, 1)) {
-  //     setEndPawn(true);
-  //   } else {
-  //     setEndPawn(false);
-  //   }
-  // };
-  // if (currentSquare?.activePiece.color === 'white') {
-  //   result.forEach((coord) => endPawn(coord, 8));
-  // } else {
-  //   result.forEach((coord) => endPawn(coord, 1));
-  // }
-
   return result;
 }

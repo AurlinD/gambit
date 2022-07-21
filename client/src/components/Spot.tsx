@@ -460,7 +460,6 @@ export default function Spot(props: Props) {
 
       setTileFocus();
       setAvailableMoves([]);
-      // setStartPosition({ x: 0, y: 0 }, '', '');
     }
   };
 

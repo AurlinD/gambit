@@ -22,8 +22,6 @@ interface Props {
     color: string;
   };
   setEndPawn: Function;
-  // castling: boolean;
-  // setCastling: Function;
   setDestination: Function;
   destination: StartPosition;
   setStartPosition: Function;
@@ -50,8 +48,6 @@ export default function Board(props: Props) {
     setDeletePawn,
     endPawn,
     setEndPawn,
-    // castling,
-    // setCastling,
     destination,
     setDestination,
     startPosition,
@@ -81,7 +77,7 @@ export default function Board(props: Props) {
     if (availableMove?.length > 0 && color === 'white') {
       setState((prev) => {
         let whiteCopy = prev.allAvailableKillMoves.white.slice();
-        // whiteCopy.push(...availableMove);
+
         for (let whiteMove of availableMove) {
           let whiteObj = {
             pieceType: pieceType,
@@ -90,9 +86,6 @@ export default function Board(props: Props) {
           };
           whiteCopy.push(whiteObj);
         }
-        // whiteCopy = whiteCopy.filter(
-        //   (item, index, self) => index === self.findIndex((w) => w.x === item.x && w.y === item.y),
-        // );
         return {
           ...prev,
           allAvailableKillMoves: {
@@ -106,7 +99,6 @@ export default function Board(props: Props) {
     if (availableMove?.length > 0 && color === 'black') {
       setState((prev) => {
         let blackCopy = prev.allAvailableKillMoves.black.slice();
-        // blackCopy.push(...availableMove);
         for (let blackMove of availableMove) {
           let blackObj = {
             pieceType: pieceType,
@@ -115,9 +107,6 @@ export default function Board(props: Props) {
           };
           blackCopy.push(blackObj);
         }
-        // blackCopy = blackCopy.filter(
-        //   (item, index, self) => index === self.findIndex((w) => w.x === item.x && w.y === item.y),
-        // );
         return {
           ...prev,
           allAvailableKillMoves: {
@@ -192,16 +181,6 @@ export default function Board(props: Props) {
     let whiteKing = getSpotDetailsByName('king', 'white');
     let acc = 0;
 
-    // const allWhiteAvailMoves = JSON.stringify(state.allAvailableKillMoves.white);
-    // const allBlackAvailMoves = JSON.stringify(state.allAvailableKillMoves.black);
-    // if (allWhiteAvailMoves.includes(JSON.stringify(blackKing))) {
-    //   setCheck('Black');
-    // } else if (allBlackAvailMoves.includes(JSON.stringify(whiteKing))) {
-    //   setCheck('White');
-    // } else {
-    //   setCheck('');
-    // }
-
     if (blackKing && whiteKing && state.allAvailableKillMoves) {
       for (let move in state.allAvailableKillMoves.white) {
         if (
@@ -210,27 +189,6 @@ export default function Board(props: Props) {
         ) {
           acc++;
           setCheck('Black');
-          // let blackKingMoves = state.allAvailableKillMoves.black.filter((kingMove) =>
-          //   JSON.stringify(kingMove.pieceType).includes('king'),
-          // );
-          // let allowableMove = false;
-          // for (let kingMove of blackKingMoves) {
-          //   let coveredMove = false;
-          //   for (let stateMove of state.allAvailableKillMoves.white) {
-          //     if (kingMove.x === stateMove.x && kingMove.y === stateMove.y) {
-          //       coveredMove = true;
-          //     }
-          //   }
-          //   if (!coveredMove) {
-          //     allowableMove = true;
-          //   }
-          // }
-          // if (allowableMove) {
-          //   setCheck('Black');
-          // } else {
-          //   setIsGameOver(true);
-          //   setTypeOfWin('checkmate');
-          // }
         }
       }
       for (let move in state.allAvailableKillMoves.black) {
@@ -267,7 +225,6 @@ export default function Board(props: Props) {
     }
   }, [getSpotDetailsByName]);
 
-  
   useEffect(() => {
     let board: any = [];
     const alphaPosition = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
